@@ -45,14 +45,49 @@
         .wine-item p {
             margin: 5px 0;
         }
-        footer {
+        .footer {
             text-align: center;
             padding: 10px;
             background-color: #333;
             color: white;
-            margin-top: 20px;
+            position: relative;
+        }
+        .bargain-container {
+            display: none;
+            background-color: white;
+            color: #333;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 10px;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .toggle-button {
+            background-color: #b03a2e;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .toggle-button:hover {
+            background-color: #922a22;
         }
     </style>
+    <script>
+        function toggleBargain() {
+            const bargain = document.getElementById('bargain');
+            if (bargain.style.display === 'none' || bargain.style.display === '') {
+                bargain.style.display = 'block';
+            } else {
+                bargain.style.display = 'none';
+            }
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -123,8 +158,14 @@
             </div>
         </div>
     </main>
-    <footer>
-        <p>© 2024 Wine Specifics. All Rights Reserved.</p>
+    <footer class="footer">
+        <button class="toggle-button" onclick="toggleBargain()">Click to Reveal a Super Wine Bargain</button>
+        <div id="bargain" class="bargain-container">
+            <h3>Super Bargain: Trader Joe's Charles Shaw (Two Buck Chuck)</h3>
+            <p>Price: $3.99</p>
+            <p>Rating: 4.6/5</p>
+            <p>Description: A fantastic wine for an unbeatable price, available in a variety of styles including Chardonnay, Merlot, and Cabernet Sauvignon.</p>
+        </div>
     </footer>
 </body>
 </html>
